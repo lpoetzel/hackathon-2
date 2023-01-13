@@ -5,13 +5,14 @@ import styles from "../styles/Home.module.css";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Router, useRouter } from "next/router";
 
 export default function Home() {
   // const inter = Inter({ subsets: ["latin"] });
   const { data: session } = useSession();
   const [iscompany, setIsCompany] = useState(false);
   const [isCustomer, setIsCustomer] = useState(true);
-
+  const router = useRouter();
   const selectedValue = (e) => {
     e.preventDefault();
     setIsCompany(!iscompany);
@@ -38,6 +39,7 @@ export default function Home() {
       })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
+    // router.push("/user");
   }
 
   if (session) {

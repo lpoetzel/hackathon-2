@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   const { user_name, user_email, is_customer, is_company, is_admin } = req.body;
   if ((req.method = "POST")) {
     const query =
-      "INSERT INTO user(user_name, user_email, is_customer, is_company,is_admin) VALUES (?, ?, ?, ?,?)";
+      "INSERT INTO user (user_name, user_email, is_customer, is_company,is_admin) VALUES (?, ?, ?, ?,?)";
 
     connection
       .promise()
